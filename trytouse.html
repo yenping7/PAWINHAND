@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PAWINHAND試用包領取表單</title>
+    <meta
+      name="description"
+      content="喵砂 What is cat litter? 咪咪喵喵愛挖砂"
+    />
+    <link rel="shortcut icon" href="./cat.png" />
+    <link rel="bookmark" href="./cat.png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="tit">
+      <a id="hh" href="./index.html"> PAWINHAND </a>
+      <br />
+      <a id="ee" href="./trytouse.html">試用包領取表單</a>
+      <a id="ee" href="./aboutus.html">關於我們</a>
+      <hr />
+      <br />
+    </div>
+
+    <img id="pic" width="464" height="322" src="./catt.png" alt="catt" />
+    <h1 id="feedback">產品試用包領取表單：</h1>
+
+    <div class="for">
+      <form action="" method="POST">
+        <label for="Account">姓名: </label>
+        <input id="Account" type="text" name="id" required />
+        <br />
+        <label for="phone">電話: </label>
+        <input
+          id="phone"
+          type="tel"
+          name="number"
+          pattern="[0-9]{4}-[0-9]{6}"
+          required
+        />
+        <br />
+        <label for="email">E-Mail: </label>
+        <input id="email" type="email" name="email" required />
+        <br />
+        <input id="male" type="radio" name="gender" value="male" required />
+        <label for="male">男性</label>
+        <input id="female" type="radio" name="gender" value="female" />
+        <label for="female">女性</label>
+        <input id="other" type="radio" name="gender" value="other" />
+        <label for="other">其他</label>
+        <br />
+        <label for="birthday">生日: </label>
+        <input
+          id="birthday"
+          type="date"
+          name="bday"
+          value="2024-12-24"
+          min="1900-01-01"
+          required
+        />
+        <br />
+        <label for="area">地區： </label>
+        <input list="arealist" type="text" name="area" id="area" />
+        <datalist id="arealist">
+          <option value="基隆">基隆</option>
+          <option value="新北">新北</option>
+          <option value="台北">台北</option>
+          <option value="桃園">桃園</option>
+          <option value="新竹">新竹</option>
+          <option value="苗栗">苗栗</option>
+          <option value="台中">台中</option>
+          <option value="彰化">彰化</option>
+          <option value="南投">南投</option>
+          <option value="雲林">雲林</option>
+          <option value="台南">台南</option>
+          <option value="高雄">高雄</option>
+          <option value="屏東">屏東</option>
+          <option value="台東">台東</option>
+          <option value="花蓮">花蓮</option>
+          <option value="宜蘭">宜蘭</option>
+        </datalist>
+        <br />
+        <label for="favorite">最喜愛的飼料品牌： </label>
+        <select name="favorite" id="favorite" required>
+          <option></option>
+          <option value="RoyalCanin">法國皇家Royal Canin</option>
+          <option value="Hills">希爾思Hills</option>
+          <option value="Farmina">法米納Farmina</option>
+          <option value="Nutram">紐頓Nutram</option>
+          <option value="Acana">愛肯拿Acana</option>
+          <option value="Annamaet">安娜美廚Annamaet</option>
+          <option value="Nutrience">紐崔斯Nutrience</option>
+          <option value="SpringNaturals">曙光Spring Naturals</option>
+          <option value="Orijen">渴望Orijen</option>
+          <option value="None">都沒吃過</option>
+        </select>
+        <hr />
+        <label for="talking">其他問題或是許願：</label>
+        <br />
+        <textarea
+          name="talking"
+          id="talking"
+          cols="50"
+          rows="15"
+          placeholder="感謝您的回饋！"
+        ></textarea>
+        <br />
+        <input id="checkbox" type="checkbox" name="awake" value="yes" />
+        <label for="checkbox">我意識清楚</label>
+        <br />
+      </form>
+      <button type="button" onclick="myFunc()">送出</button>
+    </div>
+  </body>
+</html>
