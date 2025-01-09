@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAWINHAND X 貓中途募資計畫</title>
+    <meta
+      name="description"
+      content="喵砂 What is cat litter? 咪咪喵喵愛挖砂"
+    />
+    <link rel="shortcut icon" href="./cat.png" />
+    <link rel="bookmark" href="./cat.png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="tit">
+      <a id="hh" href="./index.html"> PAWINHAND </a>
+      <br />
+      <a id="ee" href="./trytouse.html">試用包領取表單</a>
+      <a id="ee" href="./aboutus.html">關於我們</a>
+      <hr />
+      <br />
+    </div>
+    <img width="1134px" height="635px" src="./game.png" />
+
+    <img
+      id="gamecash"
+      width="60"
+      height="60"
+      draggable="true"
+      src="./cash.png"
+      style="cursor: pointer; position: absolute; top: 450px; left: 500px"
+    />
+
+    <img
+      class="droppable"
+      width="100"
+      height="100"
+      src="./kitty.png"
+      style="cursor: pointer; position: absolute; top: 450px; left: 875px"
+    />
+
+    <script>
+      let currentDroppable = null;
+
+      gamecash.onmousedown = function (event) {
+        let shiftX = event.clientX - gamecash.getBoundingClientRect().left;
+        let shiftY = event.clientY - gamecash.getBoundingClientRect().top;
+
+        gamecash.style.position = "absolute";
+        gamecash.style.zIndex = 1000;
+        document.body.append(gamecash);
+
+        moveAt(event.pageX, event.pageY);
+
+        function moveAt(pageX, pageY) {
+          gamecash.style.left = pageX - shiftX + "px";
+          gamecash.style.top = pageY - shiftY + "px";
+        }
+
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+
+          gamecash.hidden = true;
+          let elemBelow = document.elementFromPoint(
+            event.clientX,
+            event.clientY
+          );
+          gamecash.hidden = false;
+
+          if (!elemBelow) return;
+
+          let droppableBelow = elemBelow.closest(".droppable");
+          if (currentDroppable != droppableBelow) {
+            if (currentDroppable) {
+              // null when we were not over a droppable before this event
+              leaveDroppable(currentDroppable);
+            }
+            currentDroppable = droppableBelow;
+            if (currentDroppable) {
+              // null if we're not coming over a droppable now
+              // (maybe just left the droppable)
+              enterDroppable(currentDroppable);
+            }
+          }
+        }
+
+        document.addEventListener("mousemove", onMouseMove);
+
+        gamecash.onmouseup = function () {
+          document.removeEventListener("mousemove", onMouseMove);
+          gamecash.onmouseup = null;
+        };
+      };
+
+      function enterDroppable(elem) {
+        window.alert("捐款成功！感謝您的愛心");
+      }
+
+      function leaveDroppable(elem) {
+        elem.style.background = "";
+      }
+
+      gamecash.ondragstart = function () {
+        return false;
+      };
+    </script>
+
+    <footer>
+      <p class="pagetop" align="center">
+        <a href="#top" target="_self">▲回到本頁開頭</a>
+      </p>
+      <hr id="bottom" />
+      <p class="copyright" align="center">
+        <small
+          >&copy; Copyright 2024 ，本網站僅為作業之用，如有侵權敬請告知</small
+        >
+      </p>
+    </footer>
+  </body>
+</html>

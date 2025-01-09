@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="./cat.png" />
     <link rel="bookmark" href="./cat.png" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="alert.js"></script>
+    <script src="alert.js"defer></script>
   </head>
   <body>
     <div class="tit">
@@ -106,16 +106,16 @@
           placeholder="感謝您的回饋！"
         ></textarea>
         <br />
-        <input id="checkbox" type="checkbox" name="awake" value="yes" />
-        <label for="checkbox">我意識清楚</label>
-        <br />
+        <p>為了確認您不是機器人，請回答以下問題：</p>
+        <label for="question">如一列電動火車以100 km/s的速度向北行駛，風以10km/s的速度向西吹，火車產生的煙霧會往哪個方向走？</label>
+        <br>
+        <input type="text" id="answer">
+        <br>
+        <br>
       </form>
       </div>
+      <button type="button">送出</button>
       
-      <button type="button" onclick="myFunction()">送出</button>
-      <script>
-        
-        </script>
     </div>
   </body>
 </html>

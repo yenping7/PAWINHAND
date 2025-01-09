@@ -60,7 +60,8 @@ a {
 #ee:hover {
   color: #568ad3;
 }
-#pic {
+#pic,
+#gameback {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -84,11 +85,7 @@ ol > dd,
 article > table {
   margin: 0rem 4rem;
 }
-li {
-  color: #aac6f3;
-  font-weight: 500;
-  font-size: 20px;
-}
+
 .music:hover {
   color: #c7dbfa;
   font-weight: 600;
@@ -133,6 +130,14 @@ li {
   color: #315747;
   font-weight: 800;
   letter-spacing: 2px;
+}
+#gameback {
+  background-size: 924px, 502px;
+  background-repeat: no-repeat;
+}
+#gamecash {
+  position: absolute;
+  background-size: cover;
 }
 @media screen and (max-width: 900px) {
   #hh {
